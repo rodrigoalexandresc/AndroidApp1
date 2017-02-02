@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -80,6 +81,23 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> createItemsList() {
         ArrayList<String> list = new ArrayList<String>();
 
-        for (int )
+        for (int i = 1; i <= 60; i++) {
+            list.add("Item " + i);
+        }
+        return list;
+    }
+
+    private void initListView() {
+        ListView listView = (ListView) findViewById(R.id.list_view);
+        if (listView == null) {
+            return;
+        }
+
+        ArrayList<String> list = createItemsList();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, list);
+
+        listView.setAdapter(adapter);
     }
 }
